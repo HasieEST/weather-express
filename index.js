@@ -24,7 +24,8 @@ const getWeatherDataPromis = (url) => {
                 let result = {
                     description: description,
                     city: city,
-                    temp: temp
+                    temp: temp,
+                    error: null
                 }
                 resolve(result)
             })
@@ -47,6 +48,14 @@ app.all('/', function (req, res) {
     getWeatherDataPromis(url)
         .then((data) => {
             res.render('index', data)
+        })
+        .catch(error => {
+            console.log(typeof data)
+            if(typeof data == 'undefined'){
+                res.render('index', {error: 'Empty form, please input a city name!'})
+            }else{
+                res.render('index', {error: 'Problem with getting data, try again!'})
+            }
         })
 })
 

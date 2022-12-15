@@ -1,8 +1,13 @@
 <%- include('header'); %>
 <div id="weather">
-    <div id="description"><%= description%></div>
-    <h1 id="temp"><%= temp%></h1>
-    <div id="location"><%= city%></div>
+    <% if(error === null){ %>
+        <div id="description"><%= description %></div>
+        <h1 id="temp"><%= temp %></h1>
+        <div id="location"><%= city %></div>
+    <% } else { %>
+        <div role="alert"><%= error %></div>
+        <a href="/" role="button">Try Again</a>
+    <% } %>
 </div>
 <hr>
 <div>
