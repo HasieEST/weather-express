@@ -1,1 +1,16 @@
-<h1>EJS template</h1>
+<%- include('header'); %>
+<div id="weather">
+    <div id="description"></div>
+    <h1 id="temp"></h1>
+    <div id="location"></div>
+</div>
+<hr>
+<div>
+    <form id="change-city">
+        <label for="city-name">City Name</label>
+        <input type="text" id="city-name">
+        <br>
+        <input type="submit" value="Save Changes">
+    </form>
+</div>
+<%- include('footer'); %>
