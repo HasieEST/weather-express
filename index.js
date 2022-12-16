@@ -50,8 +50,8 @@ app.all('/', function (req, res) {
             res.render('index', data)
         })
         .catch(error => {
-            console.log(typeof data)
-            if(typeof data == 'undefined'){
+            console.log(req.body.cityname)
+            if(req.body.cityname.length === 0){
                 res.render('index', {error: 'Empty form, please input a city name!'})
             }else{
                 res.render('index', {error: 'Problem with getting data, try again!'})
